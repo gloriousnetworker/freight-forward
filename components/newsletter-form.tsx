@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -54,7 +53,7 @@ export default function NewsletterForm() {
         onChange={(e) => setEmail(e.target.value)}
         required
       />
-      <Button type="submit" className="w-full" disabled={isSubmitting}>
+      <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={isSubmitting}>
         {isSubmitting ? "Subscribing..." : "Subscribe"}
       </Button>
     </form>

@@ -39,14 +39,14 @@ export default function NewsSection() {
       <div className="container px-4 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
           <div>
-            <h2 className="text-3xl font-bold text-green-800">Latest News & Insights</h2>
-            <p className="text-green-600 mt-2">
+            <h2 className="text-3xl font-bold text-blue-800">Latest News & Insights</h2>
+            <p className="text-blue-600 mt-2">
               Stay updated with industry trends and company announcements
             </p>
           </div>
           <Link href="/blog">
-            <Button variant="outline" className="mt-4 md:mt-0">
-              View All Posts <ArrowRight className="ml-2 h-4 w-4 text-green-600" />
+            <Button variant="outline" className="mt-4 md:mt-0 text-blue-600 border-blue-600 hover:bg-blue-50">
+              View All Posts <ArrowRight className="ml-2 h-4 w-4 text-blue-600" />
             </Button>
           </Link>
         </div>
@@ -63,17 +63,17 @@ export default function NewsSection() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <p className="text-green-600 text-sm mb-2">{post.date}</p>
-                <h3 className="font-bold text-xl mb-2 text-green-800">
+                <p className="text-blue-600 text-sm mb-2">{post.date}</p>
+                <h3 className="font-bold text-xl mb-2 text-blue-800">
                   {post.title}
                 </h3>
-                <p className="text-green-600 mb-4">{post.excerpt}</p>
+                <p className="text-blue-600 mb-4">{post.excerpt}</p>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="text-green-600 font-medium inline-flex items-center group"
+                  className="text-blue-600 font-medium inline-flex items-center group"
                 >
                   Read more
-                  <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform text-green-600" />
+                  <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform text-blue-600" />
                 </Link>
               </div>
             </div>
@@ -81,12 +81,12 @@ export default function NewsSection() {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="mt-12 bg-green-50 p-8 rounded-lg shadow-md max-w-2xl mx-auto">
+        <div className="mt-12 bg-blue-50 p-8 rounded-lg shadow-md max-w-2xl mx-auto">
           <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold mb-2 text-green-800">
+            <h3 className="text-2xl font-bold mb-2 text-blue-800">
               Subscribe to Our Newsletter
             </h3>
-            <p className="text-green-600">
+            <p className="text-blue-600">
               Stay updated with our latest news, industry insights, and logistics tips delivered directly to your inbox.
             </p>
           </div>

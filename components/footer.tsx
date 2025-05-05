@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from "luc
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-green-700 to-green-900 text-gray-200">
+    <footer className="bg-gradient-to-r from-blue-700 to-blue-900 text-gray-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           
@@ -11,16 +11,16 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <img
-              src="/AGS.png"
-              alt="Arthur Great Logistics Logo"
-              className="h-12 w-12 object-contain"
+                src="/AGS.png"
+                alt="Arthur Great Services Logo"
+                className="h-12 w-12 object-contain"
               />
               <span className="text-xl font-bold text-white hidden sm:inline-block">
-              Arthur Great Logistics
+                FRIEGHT FORWARD - Arthur Great Services
               </span>
             </div>
             <p className="text-sm mb-4">
-              Your premier freight forwarding partner for seamless global logistics.
+              Your trusted partner for global freight forwarding and logistics solutions.
             </p>
             <div className="flex space-x-4">
               {[
@@ -32,7 +32,7 @@ export default function Footer() {
                 <Link
                   key={String(label)}
                   href={String(href)}
-                  className="text-gray-400 hover:text-green-300 transition-colors"
+                  className="text-gray-400 hover:text-blue-300 transition-colors"
                 >
                   {icon}
                   <span className="sr-only">{label}</span>
@@ -47,18 +47,36 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/services/freight-forwarding"
-                  className="hover:text-green-300 transition-colors"
+                  href="/login"
+                  className="hover:text-blue-300 transition-colors"
                 >
                   Freight Forwarding
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/services/consultancy"
-                  className="hover:text-green-300 transition-colors"
+                <a
+                  href="https://logistics.arthurgreatservices.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-300 transition-colors"
                 >
                   Logistics Consultancy
+                </a>
+              </li>
+              <li>
+                <Link
+                  href="/services/air-freight"
+                  className="hover:text-blue-300 transition-colors"
+                >
+                  Air Freight
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/ocean-freight"
+                  className="hover:text-blue-300 transition-colors"
+                >
+                  Ocean Freight
                 </Link>
               </li>
             </ul>
@@ -79,7 +97,7 @@ export default function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="hover:text-green-300 transition-colors"
+                    className="hover:text-blue-300 transition-colors"
                   >
                     {label}
                   </Link>
@@ -93,15 +111,15 @@ export default function Footer() {
             <h3 className="text-lg font-bold text-white mb-4">Contact Us</h3>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-green-300" />
+                <MapPin className="h-4 w-4 text-blue-300" />
                 <span>24, Hospital Road, Olodi-Apapa, Lagos - Nigeria</span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-green-300" />
+                <Phone className="h-4 w-4 text-blue-300" />
                 <span>+234 906 036 0506</span>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-green-300" />
+                <Mail className="h-4 w-4 text-blue-300" />
                 <span>admin@arthurgreatservices.com.ng</span>
               </li>
             </ul>
@@ -115,8 +133,8 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-green-800 mt-8 pt-8 text-sm text-center">
-          <p>&copy; {new Date().getFullYear()} Arthur Great Logistics. All rights reserved.</p>
+        <div className="border-t border-blue-800 mt-8 pt-8 text-sm text-center">
+          <p>&copy; {new Date().getFullYear()} FRIEGHT FORWARD - Arthur Great Services Limited. All rights reserved.</p>
         </div>
       </div>
     </footer>

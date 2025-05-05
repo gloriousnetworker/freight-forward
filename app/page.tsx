@@ -3,19 +3,19 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
-  Truck,
   Ship,
   Plane,
-  Package,
-  FileText,
+  Globe,
+  Box,
+  Anchor,
+  Warehouse,
+  Clock,
+  Users,
+  CheckCircle2,
   MapPin,
   Phone,
   Mail,
-  ArrowRight,
-  CheckCircle2,
-  Users,
-  Globe,
-  Clock,
+  ArrowRight
 } from "lucide-react"
 import TestimonialCarousel from "@/components/testimonial-carousel"
 import NewsSection from "@/components/news-section"
@@ -30,7 +30,6 @@ function LoginModal({ onClose, onLogin }: { onClose: () => void, onLogin: () => 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real app, you would validate credentials here
     onLogin()
   }
 
@@ -88,7 +87,7 @@ function LoginModal({ onClose, onLogin }: { onClose: () => void, onLogin: () => 
   )
 }
 
-export default function Home() {
+export default function FreightForwarding() {
   const router = useRouter()
   const [showLogin, setShowLogin] = useState(false)
   const [redirectPath, setRedirectPath] = useState("")
@@ -126,7 +125,7 @@ export default function Home() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-20 md:py-32 bg-gradient-to-r from-green-600 via-green-700 to-green-800 text-white">
+        <section className="relative py-20 md:py-32 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 md:grid-cols-2 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
@@ -135,14 +134,14 @@ export default function Home() {
               className="space-y-6"
             >
               <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                Your Trusted Partner in Global Logistics Solutions
+                Global Freight Forwarding Solutions
               </h1>
               <p className="text-lg opacity-90 max-w-md">
-                Providing comprehensive clearing, forwarding, and logistics services to businesses worldwide.
+                Expert freight forwarding services by sea, air, and land with Arthur Great Services Limited.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/quote" onClick={(e) => handleQuoteClick(e, "/quote")}>
-                  <Button size="lg" className="bg-white text-green-700 hover:bg-gray-100">
+                  <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-100">
                     Request a Quote
                   </Button>
                 </Link>
@@ -160,7 +159,7 @@ export default function Home() {
               className="hidden md:block"
             >
               <img
-                src="/cargo.png"
+                src="/freight-hero.jpg"
                 alt="Cargo shipment"
                 className="rounded-lg shadow-lg h-[400px] w-[500px] object-cover"
               />
@@ -175,15 +174,15 @@ export default function Home() {
             className="container mx-auto px-4 sm:px-6 lg:px-8 mt-12"
           >
             <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl mx-auto">
-              <h3 className="text-green-700 font-bold text-lg mb-4">Track Your Shipment</h3>
+              <h3 className="text-blue-700 font-bold text-lg mb-4">Track Your Shipment</h3>
               <form className="flex flex-col sm:flex-row gap-4">
                 <input
                   type="text"
                   placeholder="Enter tracking number"
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800"
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
                 />
                 <Link href="/register">
-                  <Button className="whitespace-nowrap bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800">
+                  <Button className="whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
                     Track Now
                   </Button>
                 </Link>
@@ -202,9 +201,9 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="text-center space-y-4 max-w-2xl mx-auto"
             >
-              <h2 className="text-3xl font-bold text-green-800">Our Comprehensive Services</h2>
+              <h2 className="text-3xl font-bold text-blue-800">Our Freight Forwarding Services</h2>
               <p className="text-gray-600">
-                We offer end-to-end logistics solutions tailored to your specific business needs
+                Comprehensive freight solutions tailored to your international shipping needs
               </p>
             </motion.div>
 
@@ -217,40 +216,40 @@ export default function Home() {
             >
               {[
                 {
-                  icon: <Ship className="h-12 w-12 text-green-700 mb-4" />,
-                  title: "Freight Forwarding",
-                  description: "International shipping solutions by sea, air, and land with real-time tracking and customs clearance.",
-                  href: "/services/freight-forwarding"
+                  icon: <Ship className="h-12 w-12 text-blue-700 mb-4" />,
+                  title: "Ocean Freight",
+                  description: "Cost-effective sea freight solutions with global coverage and customs expertise.",
+                  href: "/services/ocean-freight"
                 },
                 {
-                  icon: <Truck className="h-12 w-12 text-green-700 mb-4" />,
-                  title: "Haulage Services",
-                  description: "Reliable transportation of goods with our modern fleet of vehicles for local and long-distance deliveries.",
-                  href: "/services/haulage"
-                },
-                {
-                  icon: <Package className="h-12 w-12 text-green-700 mb-4" />,
-                  title: "Clearing & Forwarding",
-                  description: "Expert handling of customs documentation and procedures to ensure smooth clearance of your goods.",
-                  href: "/services/clearing-forwarding"
-                },
-                {
-                  icon: <FileText className="h-12 w-12 text-green-700 mb-4" />,
-                  title: "Logistics Consultancy",
-                  description: "Strategic advice on optimizing your supply chain, reducing costs, and improving efficiency.",
-                  href: "/services/consultancy"
-                },
-                {
-                  icon: <Plane className="h-12 w-12 text-green-700 mb-4" />,
+                  icon: <Plane className="h-12 w-12 text-blue-700 mb-4" />,
                   title: "Air Freight",
-                  description: "Fast and reliable air freight services for time-sensitive shipments to destinations worldwide.",
+                  description: "Fast and reliable air cargo services for time-sensitive shipments worldwide.",
                   href: "/services/air-freight"
                 },
                 {
-                  icon: <MapPin className="h-12 w-12 text-green-700 mb-4" />,
-                  title: "Warehousing",
-                  description: "Secure storage solutions with inventory management systems and distribution services.",
-                  href: "/services/warehousing"
+                  icon: <Box className="h-12 w-12 text-blue-700 mb-4" />,
+                  title: "LCL & FCL",
+                  description: "Less than Container Load and Full Container Load shipping options.",
+                  href: "/services/lcl-fcl"
+                },
+                {
+                  icon: <Anchor className="h-12 w-12 text-blue-700 mb-4" />,
+                  title: "Port Operations",
+                  description: "Efficient handling and coordination of port operations and documentation.",
+                  href: "/services/port-operations"
+                },
+                {
+                  icon: <Warehouse className="h-12 w-12 text-blue-700 mb-4" />,
+                  title: "Cargo Consolidation",
+                  description: "Optimized cargo consolidation services for cost-effective shipping.",
+                  href: "/services/cargo-consolidation"
+                },
+                {
+                  icon: <Globe className="h-12 w-12 text-blue-700 mb-4" />,
+                  title: "Global Coverage",
+                  description: "Extensive network covering major ports and airports worldwide.",
+                  href: "/services/global-coverage"
                 }
               ].map((service, index) => (
                 <motion.div 
@@ -259,27 +258,13 @@ export default function Home() {
                   className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
                 >
                   {service.icon}
-                  <h3 className="text-xl font-bold mb-2 text-green-800">{service.title}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-blue-800">{service.title}</h3>
                   <p className="text-gray-600 mb-4">{service.description}</p>
-                  <Link href={service.href} className="text-green-700 font-medium inline-flex items-center group">
+                  <Link href={service.href} className="text-blue-700 font-medium inline-flex items-center group">
                     Learn more <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </motion.div>
               ))}
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-center"
-            >
-              <Link href="/services">
-                <Button size="lg" className="mt-8 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800">
-                  View All Services
-                </Button>
-              </Link>
             </motion.div>
           </div>
         </section>
@@ -295,10 +280,10 @@ export default function Home() {
               className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
             >
               {[
-                { icon: <Globe className="h-10 w-10" />, value: "100+", label: "Countries Served" },
-                { icon: <Truck className="h-10 w-10" />, value: "5,000+", label: "Shipments Monthly" },
-                { icon: <Users className="h-10 w-10" />, value: "500+", label: "Satisfied Clients" },
-                { icon: <Clock className="h-10 w-10" />, value: "15+", label: "Years Experience" }
+                { icon: <Globe className="h-10 w-10" />, value: "150+", label: "Countries Served" },
+                { icon: <Ship className="h-10 w-10" />, value: "8,000+", label: "Monthly TEUs" },
+                { icon: <Users className="h-10 w-10" />, value: "1,200+", label: "Satisfied Clients" },
+                { icon: <Clock className="h-10 w-10" />, value: "20+", label: "Years Experience" }
               ].map((stat, index) => (
                 <motion.div 
                   key={index}
@@ -308,10 +293,10 @@ export default function Home() {
                   transition={{ delay: index * 0.1 }}
                   className="space-y-2"
                 >
-                  <div className="text-green-700 flex justify-center">
+                  <div className="text-blue-700 flex justify-center">
                     {stat.icon}
                   </div>
-                  <div className="text-4xl font-bold text-green-800">{stat.value}</div>
+                  <div className="text-4xl font-bold text-blue-800">{stat.value}</div>
                   <div className="text-gray-600">{stat.label}</div>
                 </motion.div>
               ))}
@@ -334,8 +319,8 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <img
-                  src="/cargo.png"
-                  alt="Logistics team"
+                  src="/freight-about.jpg"
+                  alt="Freight forwarding team"
                   className="rounded-lg shadow-lg h-[400px] w-full object-cover"
                 />
               </motion.div>
@@ -345,17 +330,17 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <h2 className="text-3xl font-bold text-green-800">Why Choose Arthur Great Logistics?</h2>
+                <h2 className="text-3xl font-bold text-blue-800">Why Choose Our Freight Services?</h2>
                 <p className="text-gray-600">
-                  With over 15 years of experience in the logistics industry, we've built a reputation for reliability,
-                  efficiency, and exceptional customer service.
+                  Arthur Great Services Limited brings decades of expertise in international freight forwarding, 
+                  offering reliable, efficient, and cost-effective solutions for your global shipping needs.
                 </p>
                 <div className="space-y-4">
                   {[
-                    "Global Network: Extensive network of partners in over 100 countries",
-                    "Experienced Team: Highly trained professionals with industry expertise",
-                    "Custom Solutions: Tailored logistics strategies for your specific needs",
-                    "Advanced Technology: Real-time tracking and monitoring of your shipments"
+                    "Global Network: Partnered with major carriers and agents worldwide",
+                    "Customs Expertise: Smooth customs clearance with our expert team",
+                    "Real-time Tracking: Advanced tracking systems for complete visibility",
+                    "Competitive Rates: Negotiated rates with major shipping lines"
                   ].map((item, index) => (
                     <motion.div 
                       key={index}
@@ -365,16 +350,16 @@ export default function Home() {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <CheckCircle2 className="h-6 w-6 text-green-700 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-6 w-6 text-blue-700 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h3 className="font-bold text-green-800">{item.split(":")[0]}</h3>
+                        <h3 className="font-bold text-blue-800">{item.split(":")[0]}</h3>
                         <p className="text-gray-600">{item.split(":")[1]}</p>
                       </div>
                     </motion.div>
                   ))}
                 </div>
                 <Link href="/about">
-                  <Button className="mt-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800">
+                  <Button className="mt-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
                     Learn More About Us
                   </Button>
                 </Link>
@@ -390,20 +375,20 @@ export default function Home() {
         <NewsSection />
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-green-600 via-green-700 to-green-800 text-white">
+        <section className="py-16 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="container mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6"
           >
-            <h2 className="text-3xl font-bold">Ready to Optimize Your Logistics?</h2>
+            <h2 className="text-3xl font-bold">Ready to Ship Your Cargo Globally?</h2>
             <p className="max-w-2xl mx-auto text-lg opacity-90">
-              Contact our team today to discuss how we can help streamline your supply chain and reduce costs.
+              Contact our freight experts today to discuss your international shipping requirements.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
               <Link href="/quote" onClick={(e) => handleQuoteClick(e, "/quote")}>
-                <Button size="lg" className="bg-white text-green-700 hover:bg-gray-100">
+                <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-100">
                   Request a Quote
                 </Button>
               </Link>
@@ -431,19 +416,19 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <h2 className="text-3xl font-bold text-green-800">Get in Touch</h2>
-                <p className="text-gray-600">Have questions about our services? Our team is ready to assist you.</p>
+                <h2 className="text-3xl font-bold text-blue-800">Get in Touch</h2>
+                <p className="text-gray-600">Have questions about our freight services? Our team is ready to assist you.</p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <MapPin className="h-5 w-5 text-green-700" />
+                    <MapPin className="h-5 w-5 text-blue-700" />
                     <span>24, Hospital Road, Olodi-Apapa, Lagos - Nigeria.</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Phone className="h-5 w-5 text-green-700" />
+                    <Phone className="h-5 w-5 text-blue-700" />
                     <span>+234 906 036 0506</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-green-700" />
+                    <Mail className="h-5 w-5 text-blue-700" />
                     <span>admin@arthurgreatservices.com.ng</span>
                   </div>
                 </div>
@@ -475,80 +460,79 @@ export default function Home() {
                   className="space-y-4"
                 >
                   <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_autoresponse" value="Thank you for contacting Arthur Great Services. We'll get back to you shortly." />
+                  <input type="hidden" name="_autoresponse" value="Thank you for contacting Arthur Great Services Limited. We'll get back to you shortly." />
                   <input type="hidden" name="_template" value="table" />
                   <input type="hidden" name="_next" value="https://arthurgreatserviceslogistics.vercel.app/" />
-                  <input type="hidden" name="subject" value="New Contact Request" />
+                  <input type="hidden" name="subject" value="Freight Forwarding Inquiry" />
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-green-800">
+                      <label htmlFor="name" className="text-sm font-medium text-blue-800">
                         Full Name
                       </label>
                       <input 
                         id="name" 
                         name="name" 
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" 
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
                         placeholder="John Doe" 
                         required 
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-green-800">
+                      <label htmlFor="email" className="text-sm font-medium text-blue-800">
                         Email Address
                       </label>
                       <input
                         id="email"
                         type="email"
                         name="email"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder="john@example.com"
                         required
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="company" className="text-sm font-medium text-green-800">
+                    <label htmlFor="company" className="text-sm font-medium text-blue-800">
                       Company Name
                     </label>
                     <input
                       id="company"
                       name="company"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="Your Company Ltd."
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="service" className="text-sm font-medium text-green-800">
+                    <label htmlFor="service" className="text-sm font-medium text-blue-800">
                       Service Interested In
                     </label>
                     <select 
                       id="service" 
                       name="service" 
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="">Select a service</option>
-                      <option value="freight">Freight Forwarding</option>
-                      <option value="haulage">Haulage Services</option>
-                      <option value="clearing">Clearing & Forwarding</option>
-                      <option value="consultancy">Logistics Consultancy</option>
+                      <option value="ocean">Ocean Freight</option>
                       <option value="air">Air Freight</option>
-                      <option value="warehousing">Warehousing</option>
+                      <option value="lcl">LCL Shipping</option>
+                      <option value="fcl">FCL Shipping</option>
+                      <option value="customs">Customs Clearance</option>
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-green-800">
+                    <label htmlFor="message" className="text-sm font-medium text-blue-800">
                       Message
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                      placeholder="Tell us about your logistics needs..."
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Tell us about your freight needs..."
                     ></textarea>
                   </div>
-                  <Button type="submit" className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800">
+                  <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
                     Send Message
                   </Button>
                 </form>
