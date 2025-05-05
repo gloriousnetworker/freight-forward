@@ -55,7 +55,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://logistics.arthurgreatservices.com"
+                  href="https://arthurgreatserviceslogistics.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-blue-300 transition-colors"
