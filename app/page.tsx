@@ -125,7 +125,7 @@ export default function FreightForwarding() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-20 md:py-32 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white">
+        <section className="relative py-20 md:py-32 bg-gradient-to-r from-green-600 via-green-700 to-green-800 text-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 md:grid-cols-2 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
@@ -141,7 +141,7 @@ export default function FreightForwarding() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/quote" onClick={(e) => handleQuoteClick(e, "/quote")}>
-                  <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-100">
+                  <Button size="lg" className="bg-white text-green-700 hover:bg-gray-100">
                     Request a Quote
                   </Button>
                 </Link>
@@ -174,15 +174,15 @@ export default function FreightForwarding() {
             className="container mx-auto px-4 sm:px-6 lg:px-8 mt-12"
           >
             <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl mx-auto">
-              <h3 className="text-blue-700 font-bold text-lg mb-4">Track Your Shipment</h3>
+              <h3 className="text-green-700 font-bold text-lg mb-4">Track Your Shipment</h3>
               <form className="flex flex-col sm:flex-row gap-4">
                 <input
                   type="text"
                   placeholder="Enter tracking number"
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800"
                 />
                 <Link href="/register">
-                  <Button className="whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
+                  <Button className="whitespace-nowrap bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800">
                     Track Now
                   </Button>
                 </Link>
@@ -201,7 +201,7 @@ export default function FreightForwarding() {
               transition={{ duration: 0.5 }}
               className="text-center space-y-4 max-w-2xl mx-auto"
             >
-              <h2 className="text-3xl font-bold text-blue-800">Our Freight Forwarding Services</h2>
+              <h2 className="text-3xl font-bold text-green-800">Our Freight Forwarding Services</h2>
               <p className="text-gray-600">
                 Comprehensive freight solutions tailored to your international shipping needs
               </p>
@@ -216,37 +216,37 @@ export default function FreightForwarding() {
             >
               {[
                 {
-                  icon: <Ship className="h-12 w-12 text-blue-700 mb-4" />,
+                  icon: <Ship className="h-12 w-12 text-green-700 mb-4" />,
                   title: "Ocean Freight",
                   description: "Cost-effective sea freight solutions with global coverage and customs expertise.",
                   href: "/services/ocean-freight"
                 },
                 {
-                  icon: <Plane className="h-12 w-12 text-blue-700 mb-4" />,
+                  icon: <Plane className="h-12 w-12 text-green-700 mb-4" />,
                   title: "Air Freight",
                   description: "Fast and reliable air cargo services for time-sensitive shipments worldwide.",
                   href: "/services/air-freight"
                 },
                 {
-                  icon: <Box className="h-12 w-12 text-blue-700 mb-4" />,
+                  icon: <Box className="h-12 w-12 text-green-700 mb-4" />,
                   title: "LCL & FCL",
                   description: "Less than Container Load and Full Container Load shipping options.",
                   href: "/services/lcl-fcl"
                 },
                 {
-                  icon: <Anchor className="h-12 w-12 text-blue-700 mb-4" />,
+                  icon: <Anchor className="h-12 w-12 text-green-700 mb-4" />,
                   title: "Port Operations",
                   description: "Efficient handling and coordination of port operations and documentation.",
                   href: "/services/port-operations"
                 },
                 {
-                  icon: <Warehouse className="h-12 w-12 text-blue-700 mb-4" />,
+                  icon: <Warehouse className="h-12 w-12 text-green-700 mb-4" />,
                   title: "Cargo Consolidation",
                   description: "Optimized cargo consolidation services for cost-effective shipping.",
                   href: "/services/cargo-consolidation"
                 },
                 {
-                  icon: <Globe className="h-12 w-12 text-blue-700 mb-4" />,
+                  icon: <Globe className="h-12 w-12 text-green-700 mb-4" />,
                   title: "Global Coverage",
                   description: "Extensive network covering major ports and airports worldwide.",
                   href: "/services/global-coverage"
@@ -258,9 +258,9 @@ export default function FreightForwarding() {
                   className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
                 >
                   {service.icon}
-                  <h3 className="text-xl font-bold mb-2 text-blue-800">{service.title}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-green-800">{service.title}</h3>
                   <p className="text-gray-600 mb-4">{service.description}</p>
-                  <Link href={service.href} className="text-blue-700 font-medium inline-flex items-center group">
+                  <Link href={service.href} className="text-green-700 font-medium inline-flex items-center group">
                     Learn more <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </motion.div>
@@ -293,10 +293,10 @@ export default function FreightForwarding() {
                   transition={{ delay: index * 0.1 }}
                   className="space-y-2"
                 >
-                  <div className="text-blue-700 flex justify-center">
+                  <div className="text-green-700 flex justify-center">
                     {stat.icon}
                   </div>
-                  <div className="text-4xl font-bold text-blue-800">{stat.value}</div>
+                  <div className="text-4xl font-bold text-green-800">{stat.value}</div>
                   <div className="text-gray-600">{stat.label}</div>
                 </motion.div>
               ))}
@@ -330,7 +330,7 @@ export default function FreightForwarding() {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <h2 className="text-3xl font-bold text-blue-800">Why Choose Our Freight Services?</h2>
+                <h2 className="text-3xl font-bold text-green-800">Why Choose Our Freight Services?</h2>
                 <p className="text-gray-600">
                   Arthur Great Services Limited brings decades of expertise in international freight forwarding, 
                   offering reliable, efficient, and cost-effective solutions for your global shipping needs.
@@ -350,16 +350,16 @@ export default function FreightForwarding() {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <CheckCircle2 className="h-6 w-6 text-blue-700 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="h-6 w-6 text-green-700 mt-0.5 flex-shrink-0" />
                       <div>
-                        <h3 className="font-bold text-blue-800">{item.split(":")[0]}</h3>
+                        <h3 className="font-bold text-green-800">{item.split(":")[0]}</h3>
                         <p className="text-gray-600">{item.split(":")[1]}</p>
                       </div>
                     </motion.div>
                   ))}
                 </div>
                 <Link href="/about">
-                  <Button className="mt-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
+                  <Button className="mt-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800">
                     Learn More About Us
                   </Button>
                 </Link>
@@ -375,7 +375,7 @@ export default function FreightForwarding() {
         <NewsSection />
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white">
+        <section className="py-16 bg-gradient-to-r from-green-600 via-green-700 to-green-800 text-white">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -388,7 +388,7 @@ export default function FreightForwarding() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
               <Link href="/quote" onClick={(e) => handleQuoteClick(e, "/quote")}>
-                <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-100">
+                <Button size="lg" className="bg-white text-green-700 hover:bg-gray-100">
                   Request a Quote
                 </Button>
               </Link>
@@ -416,19 +416,19 @@ export default function FreightForwarding() {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <h2 className="text-3xl font-bold text-blue-800">Get in Touch</h2>
+                <h2 className="text-3xl font-bold text-green-800">Get in Touch</h2>
                 <p className="text-gray-600">Have questions about our freight services? Our team is ready to assist you.</p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <MapPin className="h-5 w-5 text-blue-700" />
+                    <MapPin className="h-5 w-5 text-green-700" />
                     <span>24, Hospital Road, Olodi-Apapa, Lagos - Nigeria.</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Phone className="h-5 w-5 text-blue-700" />
+                    <Phone className="h-5 w-5 text-green-700" />
                     <span>+234 906 036 0506</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-blue-700" />
+                    <Mail className="h-5 w-5 text-green-700" />
                     <span>admin@arthurgreatservices.com.ng</span>
                   </div>
                 </div>
@@ -467,50 +467,50 @@ export default function FreightForwarding() {
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-blue-800">
+                      <label htmlFor="name" className="text-sm font-medium text-green-800">
                         Full Name
                       </label>
                       <input 
                         id="name" 
                         name="name" 
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" 
                         placeholder="John Doe" 
                         required 
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-blue-800">
+                      <label htmlFor="email" className="text-sm font-medium text-green-800">
                         Email Address
                       </label>
                       <input
                         id="email"
                         type="email"
                         name="email"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                         placeholder="john@example.com"
                         required
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="company" className="text-sm font-medium text-blue-800">
+                    <label htmlFor="company" className="text-sm font-medium text-green-800">
                       Company Name
                     </label>
                     <input
                       id="company"
                       name="company"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                       placeholder="Your Company Ltd."
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="service" className="text-sm font-medium text-blue-800">
+                    <label htmlFor="service" className="text-sm font-medium text-green-800">
                       Service Interested In
                     </label>
                     <select 
                       id="service" 
                       name="service" 
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                     >
                       <option value="">Select a service</option>
                       <option value="ocean">Ocean Freight</option>
@@ -521,18 +521,18 @@ export default function FreightForwarding() {
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-blue-800">
+                    <label htmlFor="message" className="text-sm font-medium text-green-800">
                       Message
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                       placeholder="Tell us about your freight needs..."
                     ></textarea>
                   </div>
-                  <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800">
+                  <Button type="submit" className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800">
                     Send Message
                   </Button>
                 </form>

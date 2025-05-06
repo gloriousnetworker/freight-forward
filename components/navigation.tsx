@@ -14,13 +14,13 @@ export default function Navigation() {
   const isActive = (path: string) => pathname === path
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-blue-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-50 w-full border-b border-green-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo + Ring */}
         <div className="relative flex items-center">
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="block h-10 w-10 rounded-full bg-blue-100" />
-            <span className="absolute h-12 w-12 rounded-full border-2 border-blue-200 animate-pulse-slow" />
+            <span className="block h-10 w-10 rounded-full bg-green-100" />
+            <span className="absolute h-12 w-12 rounded-full border-2 border-green-200 animate-pulse-slow" />
           </div>
           <Link href="/" className="relative flex items-center gap-2">
             <img
@@ -28,7 +28,7 @@ export default function Navigation() {
               alt="Arthur Great Services Logo"
               className="h-12 w-12"
             />
-            <span className="text-xl font-bold text-blue-800 hidden sm:inline-block">
+            <span className="text-xl font-bold text-green-800 hidden sm:inline-block">
               FREIGHT FORWARDING SERVICES
             </span>
           </Link>
@@ -51,8 +51,8 @@ export default function Navigation() {
                 text-sm font-medium transition-colors 
                 ${
                   isActive(href)
-                    ? "text-blue-800"
-                    : "text-gray-600 hover:text-blue-600"
+                    ? "text-green-800"
+                    : "text-gray-600 hover:text-green-600"
                 }
               `}
             >
@@ -64,7 +64,7 @@ export default function Navigation() {
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-4">
           <Link href="/quote">
-            <Button className="bg-blue-700 hover:bg-blue-600 border-blue-700">
+            <Button className="bg-green-700 hover:bg-green-600 border-green-700">
               Get a Quote
             </Button>
           </Link>
@@ -73,8 +73,8 @@ export default function Navigation() {
               className={`
                 text-sm font-medium transition-colors
                 ${isActive("/register")
-                  ? "text-blue-800"
-                  : "text-blue-600 hover:underline"}
+                  ? "text-green-800"
+                  : "text-green-600 hover:underline"}
               `}
             >
               Track Shipment
@@ -88,7 +88,7 @@ export default function Navigation() {
             <Button
               variant="outline"
               size="icon"
-              className="md:hidden text-blue-700 border-blue-700"
+              className="md:hidden text-green-700 border-green-700"
             >
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
@@ -101,9 +101,9 @@ export default function Navigation() {
                   <img
                     src="/AGS.png"
                     alt="Logo"
-                    className="h-6 w-6 text-blue-700"
+                    className="h-6 w-6 text-green-700"
                   />
-                  <span className="text-xl font-bold text-blue-800">
+                  <span className="text-xl font-bold text-green-800">
                     Arthur Great Services
                   </span>
                 </Link>
@@ -132,8 +132,8 @@ export default function Navigation() {
                       text-lg font-medium py-2 transition-colors
                       ${
                         isActive(href)
-                          ? "text-blue-800"
-                          : "text-gray-600 hover:text-blue-600"
+                          ? "text-green-800"
+                          : "text-gray-600 hover:text-green-600"
                       }
                     `}
                   >
@@ -144,14 +144,14 @@ export default function Navigation() {
 
               <div className="mt-auto space-y-4 pt-6">
                 <Link href="/quote" className="w-full">
-                  <Button className="w-full bg-blue-700 hover:bg-blue-600 border-blue-700">
+                  <Button className="w-full bg-green-700 hover:bg-green-600 border-green-700">
                     Get a Quote
                   </Button>
                 </Link>
                 <Link href="/register" className="w-full">
                   <Button
                     variant="outline"
-                    className="w-full border-blue-700 text-blue-700 hover:bg-blue-50"
+                    className="w-full border-green-700 text-green-700 hover:bg-green-50"
                   >
                     Track Shipment
                   </Button>
