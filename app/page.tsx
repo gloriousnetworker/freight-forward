@@ -15,13 +15,16 @@ import {
   MapPin,
   Phone,
   Mail,
-  ArrowRight
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  X
 } from "lucide-react"
 import TestimonialCarousel from "@/components/testimonial-carousel"
 import NewsSection from "@/components/news-section"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { useRouter } from "next/navigation"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 // Login Modal Component
 function LoginModal({ onClose, onLogin }: { onClose: () => void, onLogin: () => void }) {
@@ -87,10 +90,233 @@ function LoginModal({ onClose, onLogin }: { onClose: () => void, onLogin: () => 
   )
 }
 
+// Image Carousel Component
+function ImageCarousel({ images }: { images: string[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [direction, setDirection] = useState<"left" | "right">("right")
+  const [isFullscreen, setIsFullscreen] = useState(false)
+
+  const nextSlide = () => {
+    setDirection("right")
+    setCurrentIndex((prevIndex) => 
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    )
+  }
+
+  const prevSlide = () => {
+    setDirection("left")
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    )
+  }
+
+  const goToSlide = (index: number) => {
+    setDirection(index > currentIndex ? "right" : "left")
+    setCurrentIndex(index)
+  }
+
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen)
+  }
+
+  return (
+    <div className="relative w-full h-full">
+      <div className="relative overflow-hidden rounded-lg shadow-xl h-96 md:h-[500px]">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={currentIndex}
+            custom={direction}
+            initial={{ x: direction === "right" ? "100%" : "-100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: direction === "right" ? "-100%" : "100%", opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <img
+              src={images[currentIndex]}
+              alt={`Freight service ${currentIndex + 1}`}
+              className="w-full h-full object-cover cursor-pointer"
+              onClick={toggleFullscreen}
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white"
+      >
+        <ChevronLeft className="h-6 w-6 text-green-800" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white"
+      >
+        <ChevronRight className="h-6 w-6 text-green-800" />
+      </button>
+
+      <div className="flex justify-center mt-4 space-x-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`h-2 w-2 rounded-full ${currentIndex === index ? 'bg-green-700' : 'bg-gray-300'}`}
+          />
+        ))}
+      </div>
+
+      {/* Fullscreen Modal */}
+      <AnimatePresence>
+        {isFullscreen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            onClick={toggleFullscreen}
+          >
+            <button 
+              className="absolute top-4 right-4 text-white hover:text-gray-300"
+              onClick={(e) => {
+                e.stopPropagation()
+                toggleFullscreen()
+              }}
+            >
+              <X className="h-8 w-8" />
+            </button>
+            
+            <div className="relative w-full max-w-6xl h-full max-h-[90vh]">
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.img
+                  key={currentIndex}
+                  custom={direction}
+                  initial={{ x: direction === "right" ? "100%" : "-100%", opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: direction === "right" ? "-100%" : "100%", opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  src={images[currentIndex]}
+                  alt={`Freight service ${currentIndex + 1}`}
+                  className="w-full h-full object-contain"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </AnimatePresence>
+
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  prevSlide()
+                }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 p-3 rounded-full shadow-md hover:bg-white/30 text-white"
+              >
+                <ChevronLeft className="h-8 w-8" />
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  nextSlide()
+                }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 p-3 rounded-full shadow-md hover:bg-white/30 text-white"
+              >
+                <ChevronRight className="h-8 w-8" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
+// Photo Gallery Component
+function PhotoGallery({ images }: { images: string[] }) {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center space-y-4 mb-12"
+        >
+          <h2 className="text-3xl font-bold text-green-800">Our Operations Gallery</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            A visual journey through our freight forwarding operations and facilities
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {images.map((img, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+              onClick={() => setSelectedImage(img)}
+            >
+              <img
+                src={img}
+                alt={`Freight operation ${index + 1}`}
+                className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button 
+              className="absolute top-4 right-4 text-white hover:text-gray-300"
+              onClick={(e) => {
+                e.stopPropagation()
+                setSelectedImage(null)
+              }}
+            >
+              <X className="h-8 w-8" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              src={selectedImage}
+              alt="Enlarged freight operation"
+              className="max-w-full max-h-[90vh] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  )
+}
+
 export default function FreightForwarding() {
   const router = useRouter()
   const [showLogin, setShowLogin] = useState(false)
   const [redirectPath, setRedirectPath] = useState("")
+
+  // Generate image paths
+  const heroImages = [
+    "/images/IMG1.jpg",
+    "/images/IMG2.jpg",
+    "/images/IMG3.jpg",
+    "/images/IMG4.jpg"
+  ]
+
+  const aboutImage = "/images/IMG5.jpg"
+  
+  const galleryImages = Array.from({ length: 16 }, (_, i) => `/images/IMG${i + 6}.jpg`)
 
   const handleQuoteClick = (e: React.MouseEvent, path: string) => {
     e.preventDefault()
@@ -126,7 +352,12 @@ export default function FreightForwarding() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative py-20 md:py-32 bg-gradient-to-r from-green-600 via-green-700 to-green-800 text-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 md:grid-cols-2 items-center">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0 bg-black/30 z-10" />
+            <ImageCarousel images={heroImages} />
+          </div>
+          
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 md:grid-cols-2 items-center relative z-20">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -152,18 +383,6 @@ export default function FreightForwarding() {
                 </Link>
               </div>
             </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="hidden md:block"
-            >
-              <img
-                src="/freight-hero.jpg"
-                alt="Cargo shipment"
-                className="rounded-lg shadow-lg h-[400px] w-[500px] object-cover"
-              />
-            </motion.div>
           </div>
 
           {/* Quick Tracking Form in Hero */}
@@ -171,7 +390,7 @@ export default function FreightForwarding() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="container mx-auto px-4 sm:px-6 lg:px-8 mt-12"
+            className="container mx-auto px-4 sm:px-6 lg:px-8 mt-12 relative z-20"
           >
             <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl mx-auto">
               <h3 className="text-green-700 font-bold text-lg mb-4">Track Your Shipment</h3>
@@ -219,50 +438,67 @@ export default function FreightForwarding() {
                   icon: <Ship className="h-12 w-12 text-green-700 mb-4" />,
                   title: "Ocean Freight",
                   description: "Cost-effective sea freight solutions with global coverage and customs expertise.",
-                  href: "/services/ocean-freight"
+                  href: "/services/ocean-freight",
+                  bgImage: "/images/IMG6.jpg"
                 },
                 {
                   icon: <Plane className="h-12 w-12 text-green-700 mb-4" />,
                   title: "Air Freight",
                   description: "Fast and reliable air cargo services for time-sensitive shipments worldwide.",
-                  href: "/services/air-freight"
+                  href: "/services/air-freight",
+                  bgImage: "/images/IMG7.jpg"
                 },
                 {
                   icon: <Box className="h-12 w-12 text-green-700 mb-4" />,
                   title: "LCL & FCL",
                   description: "Less than Container Load and Full Container Load shipping options.",
-                  href: "/services/lcl-fcl"
+                  href: "/services/lcl-fcl",
+                  bgImage: "/images/IMG8.jpg"
                 },
                 {
                   icon: <Anchor className="h-12 w-12 text-green-700 mb-4" />,
                   title: "Port Operations",
                   description: "Efficient handling and coordination of port operations and documentation.",
-                  href: "/services/port-operations"
+                  href: "/services/port-operations",
+                  bgImage: "/images/IMG9.jpg"
                 },
                 {
                   icon: <Warehouse className="h-12 w-12 text-green-700 mb-4" />,
                   title: "Cargo Consolidation",
                   description: "Optimized cargo consolidation services for cost-effective shipping.",
-                  href: "/services/cargo-consolidation"
+                  href: "/services/cargo-consolidation",
+                  bgImage: "/images/IMG10.jpg"
                 },
                 {
                   icon: <Globe className="h-12 w-12 text-green-700 mb-4" />,
                   title: "Global Coverage",
                   description: "Extensive network covering major ports and airports worldwide.",
-                  href: "/services/global-coverage"
+                  href: "/services/global-coverage",
+                  bgImage: "/images/IMG11.jpg"
                 }
               ].map((service, index) => (
                 <motion.div 
                   key={index}
                   variants={item}
-                  className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                  className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden group"
                 >
-                  {service.icon}
-                  <h3 className="text-xl font-bold mb-2 text-green-800">{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <Link href={service.href} className="text-green-700 font-medium inline-flex items-center group">
-                    Learn more <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={service.bgImage}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                      {service.icon}
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2 text-green-800">{service.title}</h3>
+                    <p className="text-gray-600 mb-4">{service.description}</p>
+                    <Link href={service.href} className="text-green-700 font-medium inline-flex items-center group-hover:underline">
+                      Learn more <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -318,11 +554,13 @@ export default function FreightForwarding() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <img
-                  src="/freight-about.jpg"
-                  alt="Freight forwarding team"
-                  className="rounded-lg shadow-lg h-[400px] w-full object-cover"
-                />
+                <div className="relative h-96 w-full overflow-hidden rounded-lg shadow-lg">
+                  <img
+                    src={aboutImage}
+                    alt="Freight forwarding team"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
               </motion.div>
               <motion.div 
                 initial={{ opacity: 0, x: 50 }}
@@ -370,6 +608,9 @@ export default function FreightForwarding() {
 
         {/* Testimonials Section */}
         <TestimonialCarousel />
+
+        {/* Photo Gallery Section */}
+        <PhotoGallery images={galleryImages} />
 
         {/* News Section */}
         <NewsSection />
