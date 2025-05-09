@@ -373,7 +373,7 @@ export default function FreightForwarding() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/quote" onClick={(e) => handleQuoteClick(e, "/quote")}>
                   <Button size="lg" className="bg-white text-green-700 hover:bg-gray-100">
-                    Request a Quote
+                  b Book Now
                   </Button>
                 </Link>
                 <Link href="/services">
@@ -384,30 +384,6 @@ export default function FreightForwarding() {
               </div>
             </motion.div>
           </div>
-
-          {/* Quick Tracking Form in Hero */}
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="container mx-auto px-4 sm:px-6 lg:px-8 mt-12 relative z-20"
-          >
-            <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl mx-auto">
-              <h3 className="text-green-700 font-bold text-lg mb-4">Track Your Shipment</h3>
-              <form className="flex flex-col sm:flex-row gap-4">
-                <input
-                  type="text"
-                  placeholder="Enter tracking number"
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800"
-                />
-                <Link href="/register">
-                  <Button className="whitespace-nowrap bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800">
-                    Track Now
-                  </Button>
-                </Link>
-              </form>
-            </div>
-          </motion.div>
         </section>
 
         {/* Services Section */}

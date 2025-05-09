@@ -34,7 +34,7 @@ export default function AboutPage() {
         >
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-5xl font-bold mb-6">About Arthur Great Services</h1>
-            <p className="text-xl opacity-90 mb-8">Your trusted partner in logistics and freight solutions since 2010</p>
+            <p className="text-xl opacity-90 mb-8">Your trusted partner in logistics and freight solutions since 1990</p>
           </div>
         </motion.div>
       </section>
@@ -66,7 +66,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <img
-                src="/cargo.png"
+                src="/images/IMG7.jpg"
                 alt="Arthur Great Services headquarters"
                 className="rounded-lg shadow-lg h-[400px] w-full object-cover"
               />
@@ -249,7 +249,7 @@ export default function AboutPage() {
               >
                 <div className="md:text-right">
                   <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h3 className="text-xl font-bold mb-2">2010</h3>
+                    <h3 className="text-xl font-bold mb-2">1990</h3>
                     <h4 className="text-green-700 font-medium mb-2">Company Founded</h4>
                     <p className="text-gray-600">
                       Arthur Great Services was established in Lagos, Nigeria as a licensed clearing and forwarding company.
