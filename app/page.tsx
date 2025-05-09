@@ -373,7 +373,7 @@ export default function FreightForwarding() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/quote" onClick={(e) => handleQuoteClick(e, "/quote")}>
                   <Button size="lg" className="bg-white text-green-700 hover:bg-gray-100">
-                  b Book Now
+                    Book Now
                   </Button>
                 </Link>
                 <Link href="/services">

@@ -143,9 +143,9 @@ export default function Navigation() {
               </nav>
 
               <div className="mt-auto space-y-4 pt-6">
-                <Link href="/quote" className="w-full">
+                <Link href="/login" className="w-full">
                   <Button className="w-full bg-green-700 hover:bg-green-600 border-green-700">
-                    Get a Quote
+                    Login
                   </Button>
                 </Link>
                 <Link href="/register" className="w-full">
@@ -153,7 +153,7 @@ export default function Navigation() {
                     variant="outline"
                     className="w-full border-green-700 text-green-700 hover:bg-green-50"
                   >
-                    Track Shipment
+                    Register
                   </Button>
                 </Link>
               </div>
