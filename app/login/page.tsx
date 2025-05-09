@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 
 export default function Login() {
     const [formData, setFormData] = useState({
-        email: '',
+        username: '',
         password: '',
     });
     const [error, setError] = useState('');
@@ -29,8 +29,8 @@ export default function Login() {
 
         try {
             setLoading(true);
-            const response = await axios.post('/api/auth/login', {
-                email: formData.email,
+            const response = await axios.post('https://arthurgreatbackend.vercel.app/api/accounts/login/', {
+                username: formData.username,
                 password: formData.password,
             });
 
@@ -38,7 +38,7 @@ export default function Login() {
                 // Store token in localStorage or cookies
                 localStorage.setItem('token', response.data.token);
                 // Redirect to dashboard or home page
-                router.push('/dashboard');
+                router.push('/admin');
             }
         } catch (err: any) {
             setError(err.response?.data?.message || 'Login failed');
@@ -78,17 +78,17 @@ export default function Login() {
                         <input type="hidden" name="remember" value="true" />
                         <div className="rounded-md shadow-sm space-y-4">
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                                    Email address
+                                <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                                    username 
                                 </label>
                                 <input
-                                    id="email"
-                                    name="email"
-                                    type="email"
-                                    autoComplete="email"
+                                    id="username"
+                                    name="username"
+                                    type="username"
+                                    autoComplete="username"
                                     required
                                     className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
-                                    value={formData.email}
+                                    value={formData.username}
                                     onChange={handleChange}
                                 />
                             </div>
