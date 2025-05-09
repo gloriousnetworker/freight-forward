@@ -63,9 +63,9 @@ export default function Navigation() {
 
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-4">
-          <Link href="/quote">
+          <Link href="/login">
             <Button className="bg-green-700 hover:bg-green-600 border-green-700">
-              Get a Quote
+              Login
             </Button>
           </Link>
           <Link href="/register">
@@ -77,7 +77,7 @@ export default function Navigation() {
                   : "text-green-600 hover:underline"}
               `}
             >
-              Track Shipment
+              Register
             </span>
           </Link>
         </div>
