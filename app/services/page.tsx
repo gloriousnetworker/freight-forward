@@ -58,7 +58,7 @@ const services = [
       "Regulatory compliance management",
       "Customs bond processing",
     ],
-    image: "/images/IMG14.jpg",
+    image: "/images/IMG20.jpg",
   },
   {
     id: "consultancy",
@@ -100,7 +100,7 @@ const services = [
       "Cross-docking capabilities",
       "Distribution and fulfillment services",
     ],
-    image: "/cargo.png?height=300&width=500",
+    image: "/images/IMG18.jpg",
   },
 ]
 
