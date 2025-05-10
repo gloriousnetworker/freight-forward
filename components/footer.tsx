@@ -55,7 +55,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.arthurgreatservices.com.ng/"
+                  href="https://logistics.arthurgreatservices.com.ng/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-green-300 transition-colors"
