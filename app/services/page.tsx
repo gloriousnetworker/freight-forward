@@ -29,7 +29,7 @@ const services = [
       "Real-time shipment tracking",
       "Consolidation services",
     ],
-    image: "/cargo.png?height=300&width=500",
+    image: "/images/IMG5.jpg",
   },
   {
     id: "haulage",
@@ -44,7 +44,7 @@ const services = [
       "Specialized equipment for oversized cargo",
       "GPS tracking on all vehicles",
     ],
-    image: "/cargo.png?height=300&width=500",
+    image: "/images/IMG12.jpg",
   },
   {
     id: "clearing-forwarding",
@@ -58,7 +58,7 @@ const services = [
       "Regulatory compliance management",
       "Customs bond processing",
     ],
-    image: "/cargo.png?height=300&width=500",
+    image: "/images/IMG14.jpg",
   },
   {
     id: "consultancy",
@@ -72,7 +72,7 @@ const services = [
       "Performance benchmarking",
       "Technology implementation guidance",
     ],
-    image: "/cargo.png?height=300&width=500",
+    image: "/images/IMG3.jpg",
   },
   {
     id: "air-freight",
@@ -86,7 +86,7 @@ const services = [
       "Temperature-controlled air freight",
       "Airport-to-airport and door-to-door options",
     ],
-    image: "/cargo.png?height=300&width=500",
+    image: "/images/IMG6.jpg",
   },
   {
     id: "warehousing",

@@ -33,8 +33,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-green-800">Our Headquarters</h3>
-                    <p className="text-green-600">123 Logistics Way, Business District</p>
-                    <p className="text-green-600">London, UK, EC1A 1BB</p>
+                    <p className="text-green-600">24, Hospital Road, Olodi-Apapa,</p>
+                    <p className="text-green-600">Lagos - Nigeria</p>
                   </div>
                 </div>
 
@@ -44,8 +44,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg text-green-800">Phone</h3>
-                    <p className="text-green-600">Main: 09060360506</p>
-                    <p className="text-green-600">Customer Support: 09060360506</p>
+                    <p className="text-green-600">Main: +234 906 036 0506</p>
+                    <p className="text-green-600">Customer Support: +234 906 036 0506</p>
                   </div>
                 </div>
 
