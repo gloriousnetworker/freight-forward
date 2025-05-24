@@ -26,7 +26,7 @@ export default function Navigation() {
             <img
               src="/AGS.png"
               alt="Arthur Great Services Logo"
-              className="h-12 w-12"
+              className="h-16 w-16"
             />
             <span className="text-xl font-bold text-green-800 hidden sm:inline-block">
               FREIGHT FORWARDING SERVICES
@@ -40,7 +40,6 @@ export default function Navigation() {
             ["Home", "/"],
             ["About Us", "/about"],
             ["Services", "/services"],
-            ["Tracking", "/tracking"],
             ["Blog", "/blog"],
             ["Contact", "/contact"],
           ].map(([label, href]) => (
@@ -121,7 +120,6 @@ export default function Navigation() {
                   ["Home", "/"],
                   ["About Us", "/about"],
                   ["Services", "/services"],
-                  ["Tracking", "/register"],
                   ["Blog", "/blog"],
                   ["Contact", "/contact"],
                 ].map(([label, href]) => (

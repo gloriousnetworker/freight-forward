@@ -11,7 +11,7 @@ const testimonials = [
     position: "Supply Chain Manager",
     company: "Global Retail Inc.",
     quote:
-      "GlobalLogistics has transformed our supply chain operations. Their expertise in freight forwarding and customs clearance has reduced our shipping times by 30% and saved us thousands in logistics costs.",
+      "Arthur Great Services has transformed our supply chain operations. Their expertise in freight forwarding and customs clearance has reduced our shipping times by 30% and saved us thousands in logistics costs.",
     image: "/cargo.png?height=80&width=80",
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     position: "Operations Director",
     company: "Tech Solutions Ltd.",
     quote:
-      "We've been working with GlobalLogistics for over 5 years, and they've consistently delivered exceptional service. Their tracking system gives us real-time visibility into our shipments, which is invaluable for our business.",
+      "We've been working with Arthur Great Services for over 5 years, and they've consistently delivered exceptional service. Their tracking system gives us real-time visibility into our shipments, which is invaluable for our business.",
     image: "/cargo.png?height=80&width=80",
   },
   {
@@ -29,7 +29,7 @@ const testimonials = [
     position: "Import/Export Manager",
     company: "International Trading Co.",
     quote:
-      "The team at GlobalLogistics understands the complexities of international shipping. Their customs expertise has helped us navigate complicated regulations and avoid costly delays at borders.",
+      "The team at Arthur Great Services understands the complexities of international shipping. Their customs expertise has helped us navigate complicated regulations and avoid costly delays at borders.",
     image: "/cargo.png?height=80&width=80",
   },
 ]
