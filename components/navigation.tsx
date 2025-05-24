@@ -162,3 +162,5 @@ export default function Navigation() {
     </header>
   )
 }
+
+// This code defines a responsive navigation component for a logistics service website.
